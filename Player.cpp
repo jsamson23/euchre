@@ -95,28 +95,6 @@ public:
                     if (Card_less(hand[i], hand[minCardIndex], led_card, trump)) minCardIndex = i; // if current card is smaller than the minimum card, it becomes new lowest card
                 }
             }
-            /*
-            if (hand[highestCardIndex].get_suit(trump) != led_card.get_suit()) {
-                if (hand[i].get_suit(trump) == led_card.get_suit()) {
-                    highestCardIndex = i;
-                }
-            }
-            else {
-                if (hand[i].get_suit(trump) == led_card.get_suit() && Card_less(hand[highestCardIndex], hand[i], led_card, trump)) {
-                    highestCardIndex = i;
-                }
-            }
-            if (hand[minCardIndex].get_suit(trump) == led_card.get_suit()) {
-                if (hand[i].get_suit(trump) != led_card.get_suit()) {
-                    minCardIndex = i;
-                }
-            }
-            else {
-                if (hand[i].get_suit(trump) != led_card.get_suit() && Card_less(hand[i], hand[minCardIndex], led_card, trump)) {
-                    minCardIndex = i;
-                }
-            }
-            */
         }
         if (hand[highestCardIndex].get_suit(trump) == led_card.get_suit()) { // if highest card index IS of led suit, return that card
             Card returnable(hand[highestCardIndex].get_rank(), hand[highestCardIndex].get_suit());
