@@ -178,6 +178,32 @@ TEST(test_simple_lead_card) {
 
 }
 
+TEST(simple_add_and_discard_card) {
+    Player* john = Player_factory("John", "Simple");
+    Card arbitraryUpCard(NINE, DIAMONDS);
+    Suit trump = DIAMONDS;
+    john->add_card(Card(JACK, SPADES));
+    john->add_and_discard(arbitraryUpCard);
+    // he will only have one card. just test whether he discarded the right one
+    Card placeholder = Card();
+    Card test = john->play_card(placeholder, trump);
+    ASSERT_EQUAL(test, arbitraryUpCard);
+
+    // TEST 2: DISCARDS UPCARD
+    Player* alice = Player_factory("Alice", "Simple");
+    Card jack_diamonds(JACK, DIAMONDS);
+    alice->add_card(Card(JACK, DIAMONDS));
+    alice->add_and_discard(arbitraryUpCard);
+
+    test = alice->play_card(placeholder, trump);
+    ASSERT_EQUAL(test, jack_diamonds);
+    delete john;
+    delete alice;
+
+    
+
+
+}
 
 
 TEST_MAIN()
